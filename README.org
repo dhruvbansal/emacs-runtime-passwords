@@ -1,0 +1,26 @@
+* Emacs Runtime Passwords
+
+Instead of hard-coding passwords into your =.emacs= use this library
+to pull them out of an external resource, like a file.  This makes
+sharing your configuration files easier.
+
+If you put passwords into a [[http://en.wikipedia.org/wiki/Tab-separated_values][tab-separated file]] =~/.passwords=
+
+: # ~/.passwords
+: irc	Ohf5Eiwa
+: gmail	1aeghieD7
+
+and set
+
+#+BEGIN_SRC emacs-lisp
+(setq runtime-passwords-file "~/.passwords")
+#+END_SRC
+
+Then you can ask for a password by its key with
+
+#+BEGIN_SRC emacs-lisp
+(runtime-password-get "gmail")
+#+END_SRC
+
+You can use this form inside your =.emacs= to separate your Emacs
+configuration from credentials you need during that configuration.
