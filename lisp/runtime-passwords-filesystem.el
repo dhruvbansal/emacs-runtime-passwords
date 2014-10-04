@@ -27,7 +27,7 @@ The operating system should ensure the security of the file.")
       (if (re-search-forward (format "^%s	" key) nil t)
 	  (setq password
 		(buffer-substring-no-properties (point) (line-end-position))))
-      (kill-buffer))
+      (kill-buffer (current-buffer)))
     (unless password
       (error "No password is set for %s" key))
     password))
